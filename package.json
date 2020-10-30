@@ -1,0 +1,17 @@
+{
+  "name": "key-togger",
+  "version": "0.0.1",
+  "description": "show and hide elements by hotkey with web components hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web components",
+    "key",
+    "toggle",
+    "hotkey"
+  ],
+  "author": "Aleksey Oblozhko <oblozhko@gmail.com>",
+  "license": "ISC"
+}
