@@ -13,5 +13,6 @@
     "hotkey"
   ],
   "author": "Aleksey Oblozhko <oblozhko@gmail.com>",
+  "repository": "https://github.com/syncro/key-toggler.git",
   "license": "ISC"
 }
