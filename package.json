@@ -1,5 +1,5 @@
 {
-  "name": "key-togger",
+  "name": "key-toggler",
   "version": "0.0.1",
   "description": "show and hide elements by hotkey with web components hook",
   "main": "index.js",
