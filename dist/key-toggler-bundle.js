@@ -273,10 +273,15 @@
     return KeyToggler;
   }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
-  if (document.body.classList.contains('key-togger-autoreg')) {
-    customElements.define('key-toggler', KeyToggler);
+  var AUTOREG_ATTR_NAME = 'key-toggler-autoreg';
+  var AUTOREG_TAG_NAME = 'key-toggler';
+
+  if (document.body.classList.contains(AUTOREG_ATTR_NAME)) {
+    customElements.define(AUTOREG_TAG_NAME, KeyToggler);
   }
 
+  exports.AUTOREG_ATTR_NAME = AUTOREG_ATTR_NAME;
+  exports.AUTOREG_TAG_NAME = AUTOREG_TAG_NAME;
   exports.KeyToggler = KeyToggler$1;
 
   Object.defineProperty(exports, '__esModule', { value: true });
