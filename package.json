@@ -4,6 +4,7 @@
   "description": "show and hide elements by hotkey with web components hook",
   "main": "index.js",
   "scripts": {
+    "build": "npx rollup --config rollup.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -12,6 +13,27 @@
     "toggle",
     "hotkey"
   ],
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.7.7",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "es-module-shims": "^0.4.6",
+    "express": "^4.17.1",
+    "mocha": "^7.0.1",
+    "pre-commit": "^1.2.2",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-internal": "^1.0.4",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "sinon": "^8.1.1",
+    "wct-mocha": "^1.0.1",
+    "which": "^2.0.2"
+  },
   "author": "Aleksey Oblozhko <oblozhko@gmail.com>",
   "repository": "https://github.com/syncro/key-toggler.git",
   "license": "ISC"

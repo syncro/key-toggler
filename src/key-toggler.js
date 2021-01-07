@@ -63,17 +63,26 @@ export class KeyToggler extends HTMLElement {
         return (String.fromCharCode(event.which).toLowerCase() === key);
     }
 
-    connectedCallback() {
-        document.addEventListener('keydown', function(event) {
-            if (this.modKeyPressed(event) && this.letterKeyPressed(event)) {
-                if (this.isVisible(this.menuEl)) {
-                    this._oldDisplay = this.menuEl.style.display;
-                    this.menuEl.style.display = 'none';
-                } else {
-                    this.menuEl.style.display = this._oldDisplay || 'block';
-                }
+    toggleTarget(event) {
+        if (this.modKeyPressed(event) && this.letterKeyPressed(event)) {
+            if (this.isVisible(this.menuEl)) {
+                this._oldDisplay = this.menuEl.style.display;
+                this.menuEl.style.display = 'none';
+            } else {
+                this.menuEl.style.display = this._oldDisplay || 'block';
             }
-        }.bind(this));
+        }
+    }
+
+    connectedCallback() {
+        this.keyHandle = this.toggleTarget.bind(this);
+        document.addEventListener('keydown', this.keyHandle);
+    }
+
+    disconnectedCallback() {
+        if (this.keyHandle) {
+            document.removeEventListener('keydown', this.keyHandle);
+        }
     }
 }
 
