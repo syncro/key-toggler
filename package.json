@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build": "npx rollup --config rollup.config.js",
+    "add-bundles": "git add dist/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pre-commit": [
-    "build"
+    "build", "add-bundles"
   ],
   "keywords": [
     "web components",
