@@ -1,6 +1,8 @@
 
 
-export { KeyToggler } from './src/key-toggler.js';
+import { KeyToggler } from './src/key-toggler.js';
+
+export { KeyToggler };
 
 export const AUTOREG_ATTR_NAME = 'key-toggler-autoreg';
 export const AUTOREG_TAG_NAME = 'key-toggler';

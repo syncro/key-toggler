@@ -178,7 +178,7 @@
   var KEY_ATTR_NAME = 'key';
   var MOD_ATTR_NAME = 'mod-key';
   var TARGET_ATTR_NAME = 'target-sl';
-  var KeyToggler$1 = /*#__PURE__*/function (_HTMLElement) {
+  var KeyToggler = /*#__PURE__*/function (_HTMLElement) {
     _inherits(KeyToggler, _HTMLElement);
 
     var _super = _createSuper(KeyToggler);
@@ -282,7 +282,7 @@
 
   exports.AUTOREG_ATTR_NAME = AUTOREG_ATTR_NAME;
   exports.AUTOREG_TAG_NAME = AUTOREG_TAG_NAME;
-  exports.KeyToggler = KeyToggler$1;
+  exports.KeyToggler = KeyToggler;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
