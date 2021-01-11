@@ -15,6 +15,18 @@ Usage:
 </script>
 ```
 
+### Attributes
+
+target-sl - selector to perform on
+
+mod-key - modifier key
+
+key - code key
+
+action - call method target instead of toggling visibility
+
+event - trigger event on target instead of toggling visibility
+
 Static plug and automatic binding:
 
 ```html

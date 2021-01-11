@@ -24,15 +24,15 @@ export class KeyToggler extends HTMLElement {
         return !! (el.offsetWidth || el.offsetHeight || el.getClientRects().length);
     }
 
-    get menuEl() {
-        if (! this._menuEl) {
+    get targetEl() {
+        if (! this._targetEl) {
             if (this.hasAttribute(TARGET_ATTR_NAME)) {
-                this._menuEl = document.querySelector(this.getAttribute(TARGET_ATTR_NAME));
+                this._targetEl = document.querySelector(this.getAttribute(TARGET_ATTR_NAME));
             } else {
-                console.warn('no selector provided for MenuTogler custom element');
+                console.warn('no selector provided for key toggler custom element');
             }
         }
-        return this._menuEl;
+        return this._targetEl;
     }
 
     modKeyPressed(event) {
@@ -65,17 +65,35 @@ export class KeyToggler extends HTMLElement {
 
     toggleTarget(event) {
         if (this.modKeyPressed(event) && this.letterKeyPressed(event)) {
-            if (this.isVisible(this.menuEl)) {
-                this._oldDisplay = this.menuEl.style.display;
-                this.menuEl.style.display = 'none';
+            if (this.isVisible(this.targetEl)) {
+                this._oldDisplay = this.targetEl.style.display;
+                this.targetEl.style.display = 'none';
             } else {
-                this.menuEl.style.display = this._oldDisplay || 'block';
+                this.targetEl.style.display = this._oldDisplay || 'block';
             }
         }
     }
 
+    callMethod(event) {
+        let methodName = this.getAttribute('action');
+        if (methodName && typeof this.targetEl[methodName] === 'function') {
+            this.targetEl.methodName.call(this.targetEl, event);
+        }
+    }
+
+    fireEvent(event) {
+        let eventName = this.getAttribute('event');
+        this.targetEl.dispatchEvent(new CustomEvent(eventName));
+    }
+
     connectedCallback() {
-        this.keyHandle = this.toggleTarget.bind(this);
+        if (this.hasAttribute('action')) {
+            this.keyHandle = this.callMethod.bind(this);
+        } else if (this.hasAttribute('event')) {
+            this.keyHandle = this.fireEvent.bind(this);
+        } else {
+            this.keyHandle = this.toggleTarget.bind(this);
+        }
         document.addEventListener('keydown', this.keyHandle);
     }
 
