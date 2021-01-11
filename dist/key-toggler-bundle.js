@@ -245,10 +245,10 @@
     }, {
       key: "callMethod",
       value: function callMethod(event) {
-        var methodName = this.getAttribute('action');
+        var methodName = this.getAttribute('method');
 
         if (methodName && typeof this.targetEl[methodName] === 'function') {
-          this.targetEl.methodName.call(this.targetEl, event);
+          this.targetEl[methodName].call(this.targetEl, event);
         }
       }
     }, {

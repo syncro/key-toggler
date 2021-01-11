@@ -75,9 +75,9 @@ export class KeyToggler extends HTMLElement {
     }
 
     callMethod(event) {
-        let methodName = this.getAttribute('action');
+        let methodName = this.getAttribute('method');
         if (methodName && typeof this.targetEl[methodName] === 'function') {
-            this.targetEl.methodName.call(this.targetEl, event);
+            this.targetEl[methodName].call(this.targetEl, event);
         }
     }
 

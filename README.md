@@ -23,7 +23,7 @@ mod-key - modifier key
 
 key - code key
 
-action - call method target instead of toggling visibility
+method - call method target instead of toggling visibility
 
 event - trigger event on target instead of toggling visibility
 
