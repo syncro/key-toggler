@@ -177,6 +177,8 @@
   var KEY_DEFAULT = 'c';
   var KEY_ATTR_NAME = 'key';
   var MOD_ATTR_NAME = 'mod-key';
+  var METHOD_ATTR_NAME = 'method';
+  var EVENT_ATTR_NAME = 'event';
   var TARGET_ATTR_NAME = 'target-sl';
   var KeyToggler = /*#__PURE__*/function (_HTMLElement) {
     _inherits(KeyToggler, _HTMLElement);
@@ -245,7 +247,7 @@
     }, {
       key: "callMethod",
       value: function callMethod(event) {
-        var methodName = this.getAttribute('method');
+        var methodName = this.getAttribute(METHOD_ATTR_NAME);
 
         if (methodName && typeof this.targetEl[methodName] === 'function') {
           this.targetEl[methodName].call(this.targetEl, event);
@@ -254,15 +256,15 @@
     }, {
       key: "fireEvent",
       value: function fireEvent(event) {
-        var eventName = this.getAttribute('event');
+        var eventName = this.getAttribute(EVENT_ATTR_NAME);
         this.targetEl.dispatchEvent(new CustomEvent(eventName));
       }
     }, {
       key: "connectedCallback",
       value: function connectedCallback() {
-        if (this.hasAttribute('action')) {
+        if (this.hasAttribute(METHOD_ATTR_NAME)) {
           this.keyHandle = this.callMethod.bind(this);
-        } else if (this.hasAttribute('event')) {
+        } else if (this.hasAttribute(EVENT_ATTR_NAME)) {
           this.keyHandle = this.fireEvent.bind(this);
         } else {
           this.keyHandle = this.toggleTarget.bind(this);

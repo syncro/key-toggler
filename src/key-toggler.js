@@ -16,6 +16,8 @@
 export const KEY_DEFAULT = 'c';
 export const KEY_ATTR_NAME = 'key';
 export const MOD_ATTR_NAME = 'mod-key';
+export const METHOD_ATTR_NAME = 'method';
+export const EVENT_ATTR_NAME = 'event';
 export const TARGET_ATTR_NAME = 'target-sl';
 
 export class KeyToggler extends HTMLElement {
@@ -75,21 +77,21 @@ export class KeyToggler extends HTMLElement {
     }
 
     callMethod(event) {
-        let methodName = this.getAttribute('method');
+        let methodName = this.getAttribute(METHOD_ATTR_NAME);
         if (methodName && typeof this.targetEl[methodName] === 'function') {
             this.targetEl[methodName].call(this.targetEl, event);
         }
     }
 
     fireEvent(event) {
-        let eventName = this.getAttribute('event');
+        let eventName = this.getAttribute(EVENT_ATTR_NAME);
         this.targetEl.dispatchEvent(new CustomEvent(eventName));
     }
 
     connectedCallback() {
-        if (this.hasAttribute('action')) {
+        if (this.hasAttribute(METHOD_ATTR_NAME)) {
             this.keyHandle = this.callMethod.bind(this);
-        } else if (this.hasAttribute('event')) {
+        } else if (this.hasAttribute(EVENT_ATTR_NAME)) {
             this.keyHandle = this.fireEvent.bind(this);
         } else {
             this.keyHandle = this.toggleTarget.bind(this);
