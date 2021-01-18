@@ -9,7 +9,8 @@ export const AUTOREG_TAG_NAME = 'key-toggler';
 
 export const regKeyToggler = function() {
 
-    if (document.body.classList.contains(AUTOREG_ATTR_NAME)) {
+    if (document && (document.body && document.body.classList.contains(AUTOREG_ATTR_NAME))
+        || (document.documentElement && document.documentElement.classList.contains(AUTOREG_ATTR_NAME))) {
 
         customElements.define(AUTOREG_TAG_NAME, KeyToggler);
     }

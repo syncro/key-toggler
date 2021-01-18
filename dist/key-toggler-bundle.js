@@ -300,7 +300,7 @@
   var AUTOREG_ATTR_NAME = 'key-toggler-autoreg';
   var AUTOREG_TAG_NAME = 'key-toggler';
   var regKeyToggler = function regKeyToggler() {
-    if (document.body.classList.contains(AUTOREG_ATTR_NAME)) {
+    if (document && document.body && document.body.classList.contains(AUTOREG_ATTR_NAME) || document.documentElement && document.documentElement.classList.contains(AUTOREG_ATTR_NAME)) {
       customElements.define(AUTOREG_TAG_NAME, KeyToggler);
     }
   };

@@ -2,7 +2,7 @@
 
 web component that shows and hides any element by selector after hotkey pressed
 
-Usage:
+## Usage
 
 ```html
 <div id="header">HEADER</div>
@@ -17,17 +17,19 @@ Usage:
 
 ### Attributes
 
-target-sl - selector to perform on
+**target-sl** - selector to perform on
 
-mod-key - modifier key
+**mod-key** - modifier key
 
-key - code key
+**key** - code key
 
-method - call method target instead of toggling visibility
+**method** - call method target instead of toggling visibility
 
-event - trigger event on target instead of toggling visibility
+**event** - trigger event on target instead of toggling visibility
 
-Static plug and automatic binding:
+## Static plug and automatic binding
+
+document or body tag can be used as autoreg trigger
 
 ```html
 <body class="key-toggler-autoreg">
@@ -40,4 +42,4 @@ Static plug and automatic binding:
 </body>
 ```
 
-Note: Don't forget to put focus on web browser tab;)
+**Note:** Don't forget to put focus on web browser tab;)
