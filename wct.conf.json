@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "plugins": {
+    "local": {
+      "browsers": ["chrome"]
+    }
+  },
+  "clientOptions": {
+    "environmentScripts": [
+      "/dist/key-toggler-bundle.js",
+      "/node_modules/chai/chai.js"
+    ]
+  }
+}
