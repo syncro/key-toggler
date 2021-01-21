@@ -1,6 +1,6 @@
 # KeyToggler 
 
-web component that shows and hides any element by selector after hotkey pressed
+web component that shows and hides any element by selector after hotkey is pressed
 
 ## Usage
 
